@@ -1,0 +1,13 @@
+package com.example.constructionmaterialmarketplace;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ConstructionMaterialMarketplaceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ConstructionMaterialMarketplaceApplication.class, args);
+    }
+
+}
