@@ -17,21 +17,19 @@ import java.math.BigDecimal;
 public class OrderDetail {
 
     @Id
-    @SequenceGenerator(name = "order_detail_gen", sequenceName = "order_detail_seq", allocationSize = 1, initialValue = 7)
+    @SequenceGenerator(name = "order_detail_gen", sequenceName = "order_detail_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_detail_gen")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    private Order order;
+    private Order orderId;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private Product product;
+    private Product productId;
 
     private Integer quantity;
 
-    @Column(precision = 10, scale = 2)
     private BigDecimal price;
-
 }

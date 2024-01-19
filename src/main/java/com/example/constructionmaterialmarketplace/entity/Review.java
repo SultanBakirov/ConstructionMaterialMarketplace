@@ -17,24 +17,22 @@ import java.util.Date;
 public class Review {
 
     @Id
-    @SequenceGenerator(name = "review_gen", sequenceName = "review_seq", allocationSize = 1, initialValue = 7)
+    @SequenceGenerator(name = "review_gen", sequenceName = "review_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "review_gen")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private Product product;
+    private Product productId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User userId;
 
     private Integer rating;
 
     private String comment;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "review_date")
     private Date reviewDate;
-
 }

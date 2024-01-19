@@ -19,24 +19,21 @@ import static jakarta.persistence.CascadeType.*;
 public class Product {
 
     @Id
-    @SequenceGenerator(name = "product_gen", sequenceName = "product_seq", allocationSize = 1, initialValue = 7)
+    @SequenceGenerator(name = "product_gen", sequenceName = "product_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_gen")
     private Long id;
 
-    @Column(name = "product_name")
     private String productName;
 
     private String image;
 
     private String description;
 
-    @Column(precision = 10, scale = 2)
     private BigDecimal price;
 
-    @Column(name = "stock_quantity")
     private Integer stockQuantity;
 
     @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
-    private Category category;
-
+    @JoinColumn(name = "category_id")
+    private Category categoryId;
 }

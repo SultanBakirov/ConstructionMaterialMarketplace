@@ -15,13 +15,13 @@ import lombok.Setter;
 public class Address {
 
     @Id
-    @SequenceGenerator(name = "address_gen", sequenceName = "address_seq", allocationSize = 1, initialValue = 7)
+    @SequenceGenerator(name = "address_gen", sequenceName = "address_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_gen")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User userId;
 
     private String street;
 
@@ -31,7 +31,5 @@ public class Address {
 
     private String country;
 
-    @Column(name = "zip_code")
     private String zipCode;
-
 }

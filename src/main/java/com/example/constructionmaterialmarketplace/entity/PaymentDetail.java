@@ -19,34 +19,23 @@ import java.util.Date;
 @Table(name = "payment_details")
 public class PaymentDetail {
 
-    // payment method constants
-    public static final String METHOD_CREDIT_CARD = "CREDIT_CARD";
-    public static final String METHOD_PAYPAL = "PAYPAL";
-
-    // status constants
-    public static final String STATUS_SUCCESS = "SUCCESS";
-    public static final String STATUS_PENDING = "PENDING";
-    public static final String STATUS_FAILED = "FAILED";
-
     @Id
-    @SequenceGenerator(name = "payment_detail_gen", sequenceName = "payment_detail_seq", allocationSize = 1, initialValue = 7)
+    @SequenceGenerator(name = "payment_detail_gen", sequenceName = "payment_detail_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payment_detail_gen")
     private Long id;
 
-    @ManyToOne // ?????????????????????????
+    @ManyToOne
     @JoinColumn(name = "order_id")
-    private Order order;
+    private Order orderId;
 
-    @Column(precision = 10, scale = 2)
     private BigDecimal amount;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "payment_date")
     private Date paymentDate;
 
-    @Column(name = "payment_method")
+    @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 
+    @Enumerated(EnumType.STRING)
     private PaymentStatus status;
-
 }
