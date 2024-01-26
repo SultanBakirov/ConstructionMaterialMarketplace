@@ -1,6 +1,9 @@
 package com.example.constructionmaterialmarketplace.service;
 
-import com.example.constructionmaterialmarketplace.entity.User;
+import com.example.constructionmaterialmarketplace.dto.request.PasswordChangeRequest;
+import com.example.constructionmaterialmarketplace.dto.request.UserRequest;
+import com.example.constructionmaterialmarketplace.dto.response.SimpleResponse;
+import com.example.constructionmaterialmarketplace.dto.response.UserResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,12 +11,13 @@ import java.util.List;
 @Service
 public interface UserService {
 
-    List<User> findAllUser();
+    UserResponse getUserById(Long userId);
 
-    User saveUser(User user);
+    UserResponse updateUser(Long userId, UserRequest userRequest);
 
-    User getUserById(Long userId);
+    SimpleResponse changeUserPassword(Long userId, PasswordChangeRequest passwordChangeRequest);
 
-    User updateUser(User user);
+    List<UserResponse> getAllUsers();
 
+    SimpleResponse deleteUser(Long userId);
 }

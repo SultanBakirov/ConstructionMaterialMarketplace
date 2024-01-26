@@ -2,10 +2,7 @@ package com.example.constructionmaterialmarketplace.entity;
 
 import com.example.constructionmaterialmarketplace.entity.enums.UserRole;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -14,6 +11,7 @@ import java.util.Collections;
 
 @Setter
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -27,14 +25,14 @@ public class User implements UserDetails {
 
     private String username;
 
-    private String password;
-
     private String email;
+
+    private String phoneNumber;
+
+    private String password;
 
     @Enumerated(EnumType.STRING)
     private UserRole role;
-
-    private String phoneNumber;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

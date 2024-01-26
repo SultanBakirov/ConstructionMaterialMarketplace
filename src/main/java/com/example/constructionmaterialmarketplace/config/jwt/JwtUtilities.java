@@ -1,4 +1,4 @@
-package com.example.constructionmaterialmarketplace.config.config.jwt;
+package com.example.constructionmaterialmarketplace.config.jwt;
 
 import com.auth0.jwt.algorithms.Algorithm;
 import com.example.constructionmaterialmarketplace.entity.User;
@@ -9,12 +9,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -22,13 +20,12 @@ import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-//@Setter
-//@Getter
-@Component
-//@ConfigurationProperties(prefix = "security.jwt")
+@Setter
+@Getter
+@Service
+@ConfigurationProperties(prefix = "security.jwt")
 public class JwtUtilities {
 
     private String issuer;
@@ -37,8 +34,8 @@ public class JwtUtilities {
 
     private long expiresAt;
 
-    @Value("${jwt.secret-key}")
-    private String SECRET_KEY;
+    @Value("${security.jwt.s-e-c-r-e-t-k-e-y}")
+    private String sECrEtKEy;
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -120,7 +117,7 @@ public class JwtUtilities {
 //    }
 
     private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+        byte[] keyBytes = Decoders.BASE64.decode(sECrEtKEy);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }
