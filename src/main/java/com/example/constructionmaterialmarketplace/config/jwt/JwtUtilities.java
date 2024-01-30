@@ -83,10 +83,6 @@ public class JwtUtilities {
         return extractClaim(token, Claims::getExpiration);
     }
 
-//    public Boolean hasClaim(String token, String claimName) {
-//        final Claims claims = extractAllClaims(token);
-//        return claims.get(claimName) != null;
-//    }
 
     private Claims extractAllClaims(String token) {
         return Jwts
@@ -95,26 +91,6 @@ public class JwtUtilities {
                 .parseClaimsJws(token)
                 .getBody();
     }
-
-//    public String generateToken(UserDetails userDetails) {
-//        Map<String, Object> claims = new HashMap<>();
-//        return createToken(claims, userDetails);
-//    }
-//
-//    public String generateToken(UserDetails userDetails, Map<String, Object> claims) {
-//        return createToken(claims, userDetails);
-//    }
-
-//    private String createToken(Map<String, Object> claims, UserDetails userDetails) {
-//        return Jwts
-//                .builder()
-//                .setClaims(claims)
-//                .setSubject(userDetails.getUsername())
-//                .claim("authorities", userDetails.getAuthorities())
-//                .setIssuedAt(new Date(System.currentTimeMillis()))
-//                .setExpiration(new Date(System.currentTimeMillis() + TimeUnit.HOURS.toMillis(24)))
-//                .signWith(SignatureAlgorithm.HS256, getSignInKey()).compact();
-//    }
 
     private Key getSignInKey() {
         byte[] keyBytes = Decoders.BASE64.decode(sECrEtKEy);

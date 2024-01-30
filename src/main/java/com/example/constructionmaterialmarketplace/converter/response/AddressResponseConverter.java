@@ -27,7 +27,7 @@ public class AddressResponseConverter {
 
     public List<AddressResponse> getAllAddresses(List<Address> addresses) {
         List<AddressResponse> addressResponses = new ArrayList<>();
-        for (Address address: addresses) {
+        for (Address address : addresses) {
             addressResponses.add(viewAddress(address));
         }
         return addressResponses;

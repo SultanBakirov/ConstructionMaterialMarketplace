@@ -7,7 +7,6 @@ import com.example.constructionmaterialmarketplace.dto.response.UserResponse;
 import com.example.constructionmaterialmarketplace.entity.User;
 import com.example.constructionmaterialmarketplace.exception.NotFoundException;
 import com.example.constructionmaterialmarketplace.service.UserService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;

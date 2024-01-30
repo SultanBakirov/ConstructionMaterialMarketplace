@@ -1,5 +1,6 @@
 package com.example.constructionmaterialmarketplace.dto.request;
 
+import com.example.constructionmaterialmarketplace.entity.Order;
 import com.example.constructionmaterialmarketplace.entity.enums.PaymentMethod;
 import com.example.constructionmaterialmarketplace.entity.enums.PaymentStatus;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentDetailRequest {
+
+    private Order orderId;
 
     private BigDecimal amount;
 

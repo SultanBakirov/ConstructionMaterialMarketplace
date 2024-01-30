@@ -32,11 +32,41 @@ public class GlobalExceptionHandler {
         return errorResponse;
     }
 
+    @ExceptionHandler(NotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ExceptionResponse notFoundExceptionHandler(NotFoundException e) {
+        return new ExceptionResponse(
+                HttpStatus.NOT_FOUND,
+                e.getClass().getSimpleName(),
+                e.getMessage()
+        );
+    }
+
+    @ExceptionHandler(InvalidOrderStateException.class)
+    @ResponseStatus(BAD_REQUEST)
+    public ExceptionResponse invalidOrderStateException(InvalidOrderStateException e) {
+        return new ExceptionResponse(
+                BAD_REQUEST,
+                e.getClass().getSimpleName(),
+                e.getMessage()
+        );
+    }
+
     @ExceptionHandler(BadRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ExceptionResponse badRequestExceptionHandler(BadRequestException e) {
         return new ExceptionResponse(
                 HttpStatus.BAD_REQUEST,
+                e.getClass().getSimpleName(),
+                e.getMessage()
+        );
+    }
+
+    @ExceptionHandler(InvalidStatusTransitionException.class)
+    @ResponseStatus(HttpStatus.MULTI_STATUS)
+    public ExceptionResponse invalidStatusTransitionException(InvalidStatusTransitionException e) {
+        return new ExceptionResponse(
+                HttpStatus.MULTI_STATUS,
                 e.getClass().getSimpleName(),
                 e.getMessage()
         );

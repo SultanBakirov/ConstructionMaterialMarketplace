@@ -26,7 +26,7 @@ public class ProductResponseConverter {
 
     public List<ProductResponse> getAllProducts(List<Product> products) {
         List<ProductResponse> productResponses = new ArrayList<>();
-        for (Product product: products) {
+        for (Product product : products) {
             productResponses.add(viewProduct(product));
         }
         return productResponses;

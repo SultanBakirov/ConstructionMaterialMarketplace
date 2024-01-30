@@ -1,5 +1,5 @@
 package com.example.constructionmaterialmarketplace.entity.enums;
 
 public enum PaymentStatus {
-    SUCCESS, PENDING, FAILED
+    SUCCESS, PENDING, FAILED, REFUNDED, REFUND_FAILED
 }

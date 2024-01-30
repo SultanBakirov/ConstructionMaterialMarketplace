@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import java.time.format.DateTimeParseException;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
-public class BadRequestException extends RuntimeException{
+public class BadRequestException extends RuntimeException {
 
     public BadRequestException() {
         super();

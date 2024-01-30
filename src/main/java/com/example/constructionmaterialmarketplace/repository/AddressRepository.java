@@ -1,6 +1,5 @@
 package com.example.constructionmaterialmarketplace.repository;
 
-import com.example.constructionmaterialmarketplace.dto.response.AddressResponse;
 import com.example.constructionmaterialmarketplace.entity.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

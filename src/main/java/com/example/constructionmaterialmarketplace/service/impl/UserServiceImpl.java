@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
         User user = getAuthenticateUser();
         String email = user.getEmail();
 
-        for (User u: userRepository.findAll()) {
+        for (User u : userRepository.findAll()) {
             if (u.getEmail().equals(userRequest.getEmail()) && !userRequest.getEmail().equals(user.getEmail())) {
                 throw new BadRequestException(String.format("This %s already exist!", userRequest.getEmail()));
             }

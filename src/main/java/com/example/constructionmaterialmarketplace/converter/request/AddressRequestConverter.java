@@ -1,9 +1,7 @@
 package com.example.constructionmaterialmarketplace.converter.request;
 
 import com.example.constructionmaterialmarketplace.dto.request.AddressRequest;
-import com.example.constructionmaterialmarketplace.dto.request.CategoryRequest;
 import com.example.constructionmaterialmarketplace.entity.Address;
-import com.example.constructionmaterialmarketplace.entity.Category;
 import org.springframework.stereotype.Component;
 
 @Component

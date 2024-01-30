@@ -22,7 +22,7 @@ public class CategoryResponseConverter {
 
     public List<CategoryResponse> getAllCategories(List<Category> categories) {
         List<CategoryResponse> categoryResponses = new ArrayList<>();
-        for (Category category: categories) {
+        for (Category category : categories) {
             categoryResponses.add(viewCategory(category));
         }
         return categoryResponses;

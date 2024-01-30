@@ -29,8 +29,8 @@ public class ProductServiceImpl implements ProductService {
     private final ProductResponseConverter productResponseConverter;
 
     @Override
-    public ProductResponse saveProduct(Long productId, ProductRequest productRequest) {
-        Category category = categoryRepository.findById(productId).orElseThrow(() -> new NotFoundException(String.format("Category not found with id: " + productId)));
+    public ProductResponse saveProduct(Long categoryId, ProductRequest productRequest) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new NotFoundException(String.format("Category not found with id: " + categoryId)));
         Product product = productRequestConverter.create(productRequest);
         product.setCategoryId(category);
         productRepository.save(product);
